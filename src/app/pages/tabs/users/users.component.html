@@ -1,0 +1,46 @@
+<ion-header  [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="light">
+      <ion-buttons slot="start">
+          <img style="width: 50px;"  src="assets/imgs/logo.png">
+      </ion-buttons>
+      <ion-title class="ion-text-center" color="dark">
+          <strong>TMA TRANSPORTES</strong>
+      </ion-title>
+      <ion-buttons slot="end">
+          <ion-button>
+              <ion-icon color="dark" slot="icon-only" name="ellipsis-vertical"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchUsers()" placeholder="Buscar Usuario"></ion-searchbar>
+
+  <ion-list>
+    <ion-item *ngFor="let user of filteredUsers" (click)="viewUserDetails(user.id)">
+      <ion-label>
+        <h2>{{ user.name }}</h2>
+        <p>{{ user.email }}</p>
+        <p>Rol: {{ user.role }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-fab  vertical="bottom" horizontal="end">
+    <ion-fab-button id="register-user">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+
+<ion-modal
+  #register_user_modal
+  trigger="register-user"
+  cssClass="inline_modal"
+  (ionModalDidDismiss)="reset($event)"
+  [breakpoints]="[0.1, 0.5, 0.9]"
+  [initialBreakpoint]="0.90">
+  <ng-template>
+    <app-register-user></app-register-user>
+  </ng-template>
+</ion-modal>

@@ -1,0 +1,45 @@
+<ion-list lines="none" class="ion-margin-top">
+  <ion-list-header class="ion-padding">
+    <ion-label>
+      Registrar Usuario
+    </ion-label>
+  </ion-list-header>
+</ion-list>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <ion-list>
+    <ion-item-group class="ion-padding-horizontal ion-margin">
+      <ion-select [(ngModel)]="selectedIdentificationType" name="selectedIdentificationType" fill="outline" label="Tipo de Identificación"
+        labelPlacement="floating" mode="md">
+        <ion-select-option value="Cédula">Cédula</ion-select-option>
+        <ion-select-option value="Pasaporte">Pasaporte</ion-select-option>
+        <ion-select-option value="Otro">Otro</ion-select-option>
+      </ion-select>
+    </ion-item-group>
+    <ion-item-group class="ion-padding-horizontal ion-margin">
+      <ion-input label="Identificación" labelPlacement="floating" fill="outline" mode="md" type="text"
+        [(ngModel)]="identification" name="identification" required></ion-input>
+    </ion-item-group>
+    <ion-item-group class="ion-padding-horizontal ion-margin">
+      <ion-input label="Nombres" labelPlacement="floating" fill="outline" mode="md" type="text" [(ngModel)]="firstName"
+        name="firstName" required></ion-input>
+    </ion-item-group>
+    <ion-item-group class="ion-padding-horizontal ion-margin">
+      <ion-input label="Apellidos" labelPlacement="floating" fill="outline" mode="md" type="text" [(ngModel)]="lastName"
+        name="lastName" required></ion-input>
+    </ion-item-group>
+    <ion-item-group class="ion-padding-horizontal ion-margin">
+      <ion-input label="Correo" labelPlacement="floating" fill="outline" mode="md" type="email" [(ngModel)]="email"
+        name="email" email required></ion-input>
+    </ion-item-group>
+    <ion-item-group class="ion-padding-horizontal ion-margin">
+      <ion-select [(ngModel)]="selectedRole" name="selectedRole" fill="outline" label="Rol" labelPlacement="floating" mode="md">
+        <ion-select-option value="Supervisor">Supervisor</ion-select-option>
+        <ion-select-option value="Despachador">Despachador</ion-select-option>
+        <ion-select-option value="Otro">Otro</ion-select-option>
+      </ion-select>
+    </ion-item-group>
+  </ion-list>
+  <ion-button expand="block"  shape="round" color="primary" type="submit" [disabled]="!f.valid">
+    <ion-text>Registrar Usuario</ion-text>
+  </ion-button>
+</form>

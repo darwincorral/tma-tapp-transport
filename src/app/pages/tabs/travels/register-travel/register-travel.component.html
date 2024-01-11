@@ -1,0 +1,52 @@
+<ion-list lines="none" class="ion-margin-top">
+  <ion-list-header class="ion-padding">
+    <ion-label>
+      Registrar Envio
+    </ion-label>
+  </ion-list-header>
+</ion-list>
+
+<form #envioForm="ngForm" (ngSubmit)="enviarDatos(envioForm.value)">
+  <ion-list>
+
+    <ion-item-group class="ion-padding-horizontal ion-margin">
+      <ion-select [(ngModel)]="selectedMina" name="mina" fill="outline" label="Mina"
+        labelPlacement="floating" mode="md">
+        <ion-select-option value="Mina A">Mina A</ion-select-option>
+        <ion-select-option value="Mina B">Mina B</ion-select-option>
+      </ion-select>
+    </ion-item-group>
+    <ion-item-group class="ion-padding-horizontal ion-margin">
+      <ion-select [(ngModel)]="selectedMaterial" name="selectedMaterial" required fill="outline" label="Material"
+      labelPlacement="floating" mode="md">
+        <!-- Opciones para seleccionar el material -->
+        <ion-select-option value="Material1">Material 1</ion-select-option>
+        <ion-select-option value="Material2">Material 2</ion-select-option>
+        <!-- Agrega los materiales disponibles como opciones -->
+      </ion-select>
+    </ion-item-group>
+    <ion-item-group class="ion-padding-horizontal ion-margin">
+      <ion-input type="number" name="cantidad" [(ngModel)]="cantidad" required labelPlacement="floating" fill="outline" mode="md" label="Cantidad"></ion-input>
+    </ion-item-group>
+    <ion-item-group class="ion-padding-horizontal ion-margin">
+      <ion-input type="text" name="destino" (ionInput)="buscarUbicacion($event)" [(ngModel)]="destino" required required labelPlacement="floating" fill="outline" mode="md" label="Destino"></ion-input>
+    </ion-item-group>
+  </ion-list>
+
+  <div class="autocomplete-container" style="padding-left: 30px; padding-right: 30px; margin-top: -6%;">
+    <ion-list id="autocomplete-list">
+      <ion-item *ngFor="let place of autocompleteResults" (click)="seleccionarUbicacion(place)">
+        {{ place.description }}
+      </ion-item>
+    </ion-list>
+  </div>
+
+    <!-- Agrega un div para mostrar el mapa -->
+    <div [ngClass]="ubicacionSelected !=''?'map-container':'map-container-hidden'" >
+      <div id="map" ></div>
+    </div>
+
+  <ion-button expand="full" type="submit" [disabled]="!envioForm.valid">
+    Solicitar Transporte
+  </ion-button>
+</form>

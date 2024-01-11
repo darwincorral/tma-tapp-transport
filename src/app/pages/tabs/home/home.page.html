@@ -1,0 +1,54 @@
+
+
+<ion-content [fullscreen]="true">
+  <ion-grid style="background-color: #D32F2F;">
+    <ion-row>
+      <ion-col class="ion-text-right">
+          <ion-icon style="font-size: 25px; padding-right: 5px;" color="light" name="reorder-four-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid id="inicio" class="ion-padding-horizontal">
+    <ion-row>
+      <ion-col style="font-size: 45px; top:-25px">
+        <ion-label color="light">
+          Bienvenido
+        </ion-label>
+        <ion-label color="light">
+          Supervisor
+        </ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center ion-margin-top" style="background-color: #ffff; padding: 4px; border-radius: 7px;">
+      <ion-col size="4" *ngFor="let category of categories" class="ion-text-center">
+        <ion-card  (click)="toGoTab(category.tab)"
+          [style.background-image]="'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(' + category?.cover + ')'">
+          <ion-card-header>
+            <ion-card-title color="light">{{category?.name}}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+</ion-grid>
+<ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list >
+          <ion-list-header color="light">
+            <ion-label><b>Listado de Entregas</b></ion-label>
+            <ion-button (click)="toGoTab('travels')"><b>Ver Todos</b></ion-button>
+          </ion-list-header>
+          <ion-item *ngFor="let entrega of entregas">
+              <div class="borde-rojo"></div> <!-- Div para el borde rojo -->
+            <ion-label>
+              <h3>Punto Inicial: {{ entrega.puntoInicial }}</h3>
+              <h3>Punto Final: {{ entrega.puntoFinal }}</h3>
+              <p>Material Enviado: {{ entrega.materialEnviado }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

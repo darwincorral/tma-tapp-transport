@@ -1,0 +1,56 @@
+<form [formGroup]="form" class="ion-margin">
+  <div class="ion-margin-vertical">
+    <ion-item lines="none">
+      <ion-input label="" errorText="* Please enter the username" formControlName="username" type="text" placeholder="Enter username"></ion-input>
+    </ion-item>
+  </div> 
+  <div class="ion-margin-vertical">
+    <ion-item lines="none">
+      <ion-input label="" errorText="* Please enter email" formControlName="email" type="email" placeholder="Enter email"></ion-input>
+    </ion-item>
+  </div>
+  <div class="ion-margin-vertical">
+    <ion-item lines="none">
+      <ion-icon 
+        [name]="type ? 'eye' : 'eye-off'" 
+        slot="end" 
+        color="dark" 
+        (click)="changeType()">
+      </ion-icon>
+      <ion-input label="" errorText="* Please enter the password" minlength="8" formControlName="password" [type]="type ? 'password' : 'text'" 
+        placeholder="Enter password"></ion-input>
+    </ion-item>
+  </div>
+</form>
+
+<div class="ion-margin-horizontal">
+  <ion-button
+    *ngIf="!isLoading"
+    size="large" 
+    expand="block" 
+    shape="round" 
+    color="primary"
+    (click)="onSubmit()">
+    <ion-text>Sign Up</ion-text>
+  </ion-button>
+  <ion-button
+    *ngIf="isLoading"
+    size="large" 
+    expand="block" 
+    shape="round" 
+    color="primary">
+    <ion-spinner></ion-spinner>
+  </ion-button>
+</div>
+<!--
+<p class="ion-text-center">
+  <ion-text color="medium">OR</ion-text>
+</p>
+
+<p class="ion-text-center">
+  <ion-icon name="logo-facebook" color="tertiary"></ion-icon>
+  <ion-icon name="logo-twitter" color="secondary"></ion-icon>
+  <ion-icon name="logo-google" color="danger"></ion-icon>
+</p>
+
+-->

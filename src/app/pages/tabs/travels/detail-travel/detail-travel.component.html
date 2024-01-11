@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar  color="primary">
+    <ion-title>
+      Detalle de Entrega 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row style="padding-top: 10px;">
+      <ion-col class="ion-text-center">
+        <ion-badge [color]="estadoColor(entrega.estado)">
+          <ion-label style="font-size: 18px;">{{ entrega.estado }}</ion-label>
+        </ion-badge>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h4 style="margin: 0px;">Punto de Envío:</h4>
+        <p style="padding-left: 15px;">Fecha: {{ entrega.puntoEnvio.fecha }}</p>
+        <p style="padding-left: 15px;">Dirección: {{ entrega.puntoEnvio.mina }}</p>
+        <p style="padding-left: 15px;">Material: {{ entrega.puntoEnvio.material }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h4  style="margin: 0px;">Punto de Llegada:</h4>
+        <p style="padding-left: 15px;">Fecha: {{ entrega.puntoLlegada.fecha }}</p>
+        <p style="padding-left: 15px;">Dirección: {{ entrega.puntoLlegada.direccion }}</p>
+        <p style="padding-left: 15px;">Recibe: Ivan Ramirez</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h4  style="margin: 0px;">Transporte:</h4>
+        <p style="padding-left: 15px;">Vehículo: {{ entrega.transporte.vehiculo }}</p>
+        <p style="padding-left: 15px;">Propietario: {{ entrega.transporte.propietario }}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="map-container">
+    <div id="map"></div>
+  </div>
+
+</ion-content>
