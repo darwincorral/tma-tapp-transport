@@ -23,27 +23,7 @@
             <h3>Punto Inicial: {{ entrega.puntoInicial }}</h3>
             <h3>Punto Final: {{ entrega.puntoFinal }}</h3>
             <p>Material Enviado: {{ entrega.materialEnviado }}</p>
-            <p>Transporte: {{ entrega.transporte }}</p>
           </ion-label>
         </ion-item>
       </ion-list>
-
-      <ion-fab  vertical="bottom" horizontal="end">
-        <ion-fab-button id="register-travel">
-          <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-      </ion-fab>
 </ion-content>
-
-
-<ion-modal
-  #register_travel_modal
-  trigger="register-travel"
-  cssClass="inline_modal"
-  (ionModalDidDismiss)="reset($event)"
-  [breakpoints]="[0.1, 0.5, 0.9]"
-  [initialBreakpoint]="1">
-  <ng-template>
-    <app-register-travel></app-register-travel>
-  </ng-template>
-</ion-modal>

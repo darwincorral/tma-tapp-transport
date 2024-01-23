@@ -30,9 +30,11 @@ export class SignUpComponent implements OnInit {
 
   initForm() {
     this.form = new FormGroup({
-      username: new FormControl(null, {validators: [Validators.required]}),
+      name: new FormControl(null, {validators: [Validators.required]}),
       email: new FormControl(null, {validators: [Validators.required, Validators.email]}), // added email validator also
-      password: new FormControl(null, {validators: [Validators.required, Validators.minLength(8)]})
+      password: new FormControl(null, {validators: [Validators.required, Validators.minLength(8)]}),
+      cedula: new FormControl(null, {validators: [Validators.required]}),
+      licencia: new FormControl(null, {validators: [Validators.required]})
     });
   }
 

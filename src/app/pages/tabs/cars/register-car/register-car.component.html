@@ -1,0 +1,45 @@
+<ion-list lines="none" class="ion-margin-top">
+  <ion-list-header class="ion-padding">
+    <ion-label>
+      Registrar Vehículo
+    </ion-label>
+  </ion-list-header>
+</ion-list>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <ion-list>
+    <ion-item-group class="ion-padding-horizontal ion-margin">
+      <ion-input label="Placa" labelPlacement="floating" fill="outline" mode="md" type="text"
+        [(ngModel)]="placa" name="placa" required></ion-input>
+    </ion-item-group>
+    <ion-item-group class="ion-padding-horizontal ion-margin">
+      <ion-select [(ngModel)]="selectedType" name="selectedType" fill="outline" label="Tipo de vehículo"
+        labelPlacement="floating" mode="md">
+        <ion-select-option value="Cédula">Camión</ion-select-option>
+        <ion-select-option value="Pasaporte">Volqueta</ion-select-option>
+        <ion-select-option value="Otro">Otro</ion-select-option>
+      </ion-select>
+    </ion-item-group>
+    <ion-item-group class="ion-padding-horizontal ion-margin">
+      <ion-input label="Capacidad" labelPlacement="floating" fill="outline" mode="md" type="text" [(ngModel)]="capacity"
+        name="capacity" required></ion-input>
+    </ion-item-group>
+
+    <ion-item style="padding-top: 10px;">
+      <div class="file-input" (click)="file.click()" *ngIf="!filePreview">
+        <ion-icon name="camera" class="camera-icon"></ion-icon>
+        <div class="select-attachment">Seleccionar Imagen</div>
+      </div>
+      <ion-label position="stacked" *ngIf="filePreview">Seleccionar Imagen</ion-label>
+      <input type="file" #file [hidden]="!filePreview"  accept=".jpg, .jpeg, .png"  (change)="handleFileInput($event.target)">
+    </ion-item>
+
+    <div class="ion-text-center">
+      <img  *ngIf="filePreview" [src]="filePreview"  alt="Vista previa de la imagen" class="image-preview">  
+    </div>
+
+    
+  </ion-list>
+  <ion-button expand="block"  shape="round" color="primary" type="submit" [disabled]="!f.valid">
+    <ion-text>Registrar Vehículo</ion-text>
+  </ion-button>
+</form>

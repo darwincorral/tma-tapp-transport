@@ -23,8 +23,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.categories = [
-      {id: 1, cover: 'assets/menu/usuarios.jpg', name: 'Usuarios', tab:'users'},
-      {id: 2, cover: 'assets/menu/minas.png', name: 'Minas', tab:'mines'},
+      {id: 1, cover: 'assets/menu/cars.jpg', name: 'Vehículos', tab:'cars'},
       {id: 8, cover: 'assets/menu/viajes.png', name: 'Viajes', tab:'travels'},
     ];
 

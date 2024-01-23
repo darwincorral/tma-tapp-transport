@@ -1,13 +1,29 @@
-<form [formGroup]="form" class="ion-margin">
+<form [formGroup]="form" class="ion-margin" >
   <div class="ion-margin-vertical">
     <ion-item lines="none">
-      <ion-input label="" errorText="* Please enter the username" formControlName="username" type="text" placeholder="Enter username"></ion-input>
+      <ion-input label="" errorText="* Campo requerido" formControlName="cedula" type="text" placeholder="Ingresar Cédula"></ion-input>
     </ion-item>
   </div> 
   <div class="ion-margin-vertical">
     <ion-item lines="none">
-      <ion-input label="" errorText="* Please enter email" formControlName="email" type="email" placeholder="Enter email"></ion-input>
+      <ion-input label="" errorText="* Campo requerido" formControlName="name" type="text" placeholder="Ingresar Nombres"></ion-input>
     </ion-item>
+  </div>
+  <div class="ion-margin-vertical">
+    <ion-item lines="none">
+      <ion-input label="" errorText="* Campo requerido" formControlName="email" type="email" placeholder="Ingresar Correo"></ion-input>
+    </ion-item>
+  </div>
+  <div class="ion-margin-vertical">
+    <ion-list>
+      <ion-item>
+        <ion-select aria-label="licencia" placeholder="Seleccionar Licencia">
+          <ion-select-option value="A">A</ion-select-option>
+          <ion-select-option value="B">B</ion-select-option>
+          <ion-select-option value="C">C</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
   </div>
   <div class="ion-margin-vertical">
     <ion-item lines="none">
@@ -17,8 +33,8 @@
         color="dark" 
         (click)="changeType()">
       </ion-icon>
-      <ion-input label="" errorText="* Please enter the password" minlength="8" formControlName="password" [type]="type ? 'password' : 'text'" 
-        placeholder="Enter password"></ion-input>
+      <ion-input label="" errorText="* Campo requerido" minlength="8" formControlName="password" [type]="type ? 'password' : 'text'" 
+        placeholder="Ingrese una Contraseña"></ion-input>
     </ion-item>
   </div>
 </form>
@@ -31,7 +47,7 @@
     shape="round" 
     color="primary"
     (click)="onSubmit()">
-    <ion-text>Sign Up</ion-text>
+    <ion-text>Registrarse</ion-text>
   </ion-button>
   <ion-button
     *ngIf="isLoading"

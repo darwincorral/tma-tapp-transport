@@ -1,0 +1,13 @@
+.borde-rojo {
+    width: 6px; /* Ancho del borde rojo */
+    background-color: red; /* Color del borde rojo */
+    margin-right: 8px; /* Margen a la derecha del borde rojo */
+    height: 100%; /* Altura igual al elemento padre (el ion-item) */
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  ion-item {
+    padding-top: 5px;
+
+  }

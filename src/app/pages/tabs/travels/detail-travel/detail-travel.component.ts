@@ -113,7 +113,7 @@ this.mostrarTrayecto(coordenadasTrayecto);
   
       // Contenido de la ventana de información
       const contentString = `
-        <div style='width:200px'>
+        <div style='width:200px; color:black'>
           <p>Hora: ${coordenada.hora}</p>
           <p>Latitud: ${coordenada.lat}</p>
           <p>Longitud: ${coordenada.lng}</p>
